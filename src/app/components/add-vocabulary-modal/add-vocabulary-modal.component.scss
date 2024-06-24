@@ -1,0 +1,12 @@
+ion-content {
+    --background: linear-gradient(135deg, #f9cbcbd5, #8e8ebace);
+    gap: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    height: fit-content;
+    gap: 20px;
+}

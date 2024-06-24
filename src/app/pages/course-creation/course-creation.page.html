@@ -1,0 +1,48 @@
+<ion-header [translucent]="true"> <!-- Sektion: Header -->
+  <ion-toolbar> <!-- Toolbar -->
+    <ion-buttons slot="start"> <!--Button vor dem Titel zur Navigation zur Home Seite-->
+      <ion-button (click)="navigateToHome()" color="light" size="large">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>V LAB</ion-title> <!-- Titel -->
+    <ion-buttons slot="end"> <!--Button nach dem Titel zum Hinzufügen einer neuen Sprache-->
+      <ion-button shape="round" fill="solid" color="tertiary" size="large" #darkenElement (click)="onAddNewLanguage()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" #content> <!-- Sektion: Inhalt -->
+
+  <div class="card-container"> <!-- Container für die Karten-->
+    <div class="drop-container"> <!-- Container für die Drop-Zones-->
+      <ion-card #firstDropZoneRef class="dropZoneCard"> <!-- Drop-Zone für die erste Sprache-->
+        <ion-card-header>
+          <ion-card-title>First Language</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      <ion-card #secondDropZoneRef class="dropZoneCard">  <!-- Drop-Zone für die zweite Sprache-->
+        <ion-card-header>
+          <ion-card-title>Learning Language</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+    <!-- Sprachkarten -->
+    <ion-card #langCard class="lang-card" color="tertiary" *ngFor="let language of languages" [id]="language.id">
+      {{language.name}}
+    </ion-card>
+  </div>
+  <!-- Buttons -->
+  <ion-fab slot="fixed" horizontal="center" vertical="bottom"> <!-- Delete Button -->
+    <ion-fab-button #deleteButton color="danger" style="margin: 0 auto 20px auto; display: none;">
+      <ion-icon name="trash-bin-outline"></ion-icon>
+    </ion-fab-button> 
+
+    <ion-fab-button color="tertiary" #darkenElement class="readyButton"  
+      [ngClass]="{disabled: !enableReadyButton}" (click)="enableReadyButton() && onReady()"> <!-- Ready Button -->
+      <div class="button-label">Ready!</div>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

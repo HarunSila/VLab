@@ -1,0 +1,15 @@
+<!-- Stapel mit falsch beantworteten Vokabeln -->
+<ion-button class="btn failed"  color="warning" shape="round">
+  <ion-icon name="albums-outline"></ion-icon>
+</ion-button>
+<ion-card #card class="stack failed" *ngFor="let vocab of failedStack">
+  <div class="term">{{vocab.translation}}</div>
+</ion-card>
+
+<!-- Stapel mit richtig beantworteten Vokabeln -->
+<ion-button class="btn success" color="success" shape="round">
+  <ion-icon name="ribbon-outline"></ion-icon>
+</ion-button>
+<ion-card #card class="stack success" *ngFor="let vocab of successStack">
+  <div class="term">{{vocab.translation}}</div>
+</ion-card>

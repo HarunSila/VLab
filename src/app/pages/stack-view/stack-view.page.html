@@ -1,0 +1,33 @@
+<ion-header [translucent]="true"> <!-- Sektion: Header -->
+  <ion-toolbar> <!-- Toolbar -->
+    <ion-buttons slot="start"> <!-- Button vor dem Titel zur Navigation zum Kurs -->
+      <ion-button (click)="onNavigateToCourse()" color="light" size="large"> 
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>V LAB</ion-title> <!-- Titel der Seite -->
+    <ion-buttons slot="end"> <!-- Button nach dem Titel -->
+      <!-- Button zum Hinzufügen einer neuen Vokabel -->
+      <ion-button *ngIf="stackType === 'pot'"
+        shape="round" fill="solid" color="tertiary" size="large" #darkenElement (click)="onAddNewVocabulary()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      <!-- Button zum Verschieben des aktuellen Stacks in den Pot -->
+      <ion-button *ngIf="stackType !== 'pot'" 
+        shape="round" fill="solid" color="tertiary" size="large" #darkenElement (click)="onMoveStackToPot()">
+        <ion-icon name="refresh-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> <!-- Sektion: Inhalt -->
+  <!-- Injektion der course-metrics Komponente mit dem entsprechenden Stack, Typen und blockierter Navigation-->
+  <app-course-metrics #courseMetric *ngIf="stackType === 'pot'" [course]="course" [potStackId]="course.pot_stack_id" [blockButtonPress]="true"></app-course-metrics>
+  <app-course-metrics #courseMetric *ngIf="stackType === 'failed'" [course]="course" [failedStackId]="course.failed_stack_id"  [blockButtonPress]="true"></app-course-metrics>
+  <app-course-metrics #courseMetric *ngIf="stackType === 'success'" [course]="course" [successStackId]="course.success_stack_id" [blockButtonPress]="true"></app-course-metrics>
+  <!-- Injektion der vocabulary-viewer Komponente -->
+  <div class="vocabulary-viewer-container">
+    <app-vocabulary-viewer [vocabulary]="vocabularies" (editClicked)="handleEditVocabulary($event)" (deleteClicked)="handleDeleteVocabulary($event)"></app-vocabulary-viewer>
+  </div>
+</ion-content>

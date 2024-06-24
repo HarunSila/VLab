@@ -1,0 +1,111 @@
+ion-content {
+    --background: linear-gradient(135deg, #f9cbcbd5, #8e8ebace);
+}
+
+round-progress {
+    margin: auto;
+  }
+
+.progress-container {
+    position: relative;
+    margin: 20px auto;
+    font-size: 40px;
+}
+
+.current {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.2);
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: large;
+  }
+
+.language-selection-container{
+  display: flex;
+  flex-direction: column;
+  width:fit-content;
+  margin: auto;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgb(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+
+  width: 95%;
+  margin: auto;
+  align-items: center;
+
+  .language-selection{
+    display:  flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    font-size: medium;
+    color: var(--ion-color-light);
+  }
+}
+
+.vocabulary-number-container{
+  margin: 20px auto;
+  width: 95%;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgb(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+
+  ion-card-title{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 300;
+    font-size: medium;
+    color: var(--ion-color-light);
+  }
+
+  ion-segment{
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    font-size: large;
+  }
+}
+
+.startRoundButton {
+  --border-radius: 25px;
+  --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  opacity: 0.8;
+  .button-label{
+      padding: 5px;
+      letter-spacing: 0.1em;
+      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-weight: 700;
+      font-size: 100%;
+  }
+}
+
+@media screen and (max-height: 750px){
+  .language-selection-container{
+    gap: 5px;
+    padding: 5px;
+    .language-selection{
+      gap: 5px;
+      font-size: small;
+    }
+  } 
+
+  .vocabulary-number-container{
+    padding: 5px;
+    ion-segment{
+      font-size: small;
+    }
+    ion-card-title{
+      font-size: small;
+    }
+  }
+}

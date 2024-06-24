@@ -1,0 +1,27 @@
+<ion-header> <!-- Sektion: Header -->
+  <ion-toolbar> <!-- Toolbar -->
+    <ion-buttons slot="start">  <!-- Button vor dem Titel zum Abbrechen des Vorgangs -->
+      <ion-button shape="round" fill="solid" color="danger" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-title>V LAB</ion-title> <!-- Titel -->
+    <ion-buttons slot="end"> <!-- Button nach dem Titel zum Bestätigen der Eingabe -->
+      <ion-button shape="round" fill="solid" color="success" (click)="confirm()" [strong]="true" 
+        [disabled]="!term || !(term.length > 0) || !translation || !(translation.length > 0)">Confirm</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding"> <!-- Sektion: Inhalt -->
+  <div class="container"> <!-- Container für Input Felder -->
+    <ion-item color="tertiary">
+      <ion-input labelPlacement="stacked" label="Term" [(ngModel)]="term" placeholder="Enter a term in the learning language"></ion-input>
+    </ion-item>
+  
+    <ion-item color="tertiary">
+      <ion-textarea  labelPlacement="stacked" label="Description" [(ngModel)]="description" placeholder="(Optional) short description of the term" [autoGrow]="true"></ion-textarea >
+    </ion-item>
+  
+    <ion-item color="tertiary">
+      <ion-input labelPlacement="stacked" label="Translation" [(ngModel)]="translation" placeholder="Enter a translation in your first language"></ion-input>
+    </ion-item>
+  </div>
+</ion-content>

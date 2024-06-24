@@ -1,0 +1,7 @@
+<ion-card color="tertiary" (click)="onCourseClick()">
+  <ion-card-content>
+    <ion-label>First language: <p>{{sourceLanugage}}</p></ion-label>
+    <ion-label>Learning lanugage: <p>{{targetLanguae}}</p></ion-label>
+    <ion-progress-bar [value]="progress" [color]="getProgressColor(progress)"></ion-progress-bar>
+  </ion-card-content>
+</ion-card>

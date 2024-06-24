@@ -1,0 +1,17 @@
+<div class="question-container"> <!-- Container zum Gruppieren der Fragen und des Antwortfelds-->
+  <ion-card #questionCard *ngFor="let question of questions"> <!-- Karte für die Frage -->
+      <ion-label>{{question.question}}</ion-label>
+      <ion-card-subtitle>{{question.vocabulary.description}}</ion-card-subtitle>
+  </ion-card>
+
+  <ion-card class="answer-card"> <!-- Karte für die Antwort -->
+      <ion-textarea label="Answer" 
+                    labelPlacement="floating" 
+                    fill="outline"
+                    color="tertiary"
+                    [(ngModel)]="currentAnswer"
+                    placeholder="Enter your answer"
+                    [autoGrow]="true"></ion-textarea>
+  </ion-card>
+</div>
+

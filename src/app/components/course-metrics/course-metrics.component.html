@@ -1,0 +1,25 @@
+<div class="meterics-container"> <!-- Container für die Stack Anzeigen -->
+  <div class="stack pot" *ngIf="this.potStackId"> <!-- Pot Stack -->
+    <ion-badge [ngClass]="{'jump-animation': potJumpActive}">{{potStackLength}}</ion-badge>
+    <ion-button  color="tertiary" (click)="onStackPress('pot')">
+      <ion-icon name="archive-outline"></ion-icon>
+    </ion-button>
+    <p>Pot</p>
+  </div>
+
+  <div class="stack failed" *ngIf="this.failedStackId"> <!-- Failed Stack -->
+    <ion-badge [ngClass]="{'jump-animation': failedJumpActive}">{{failedStackLength}}</ion-badge>
+    <ion-button  color="warning" (click)="onStackPress('failed')">
+      <ion-icon name="albums-outline"></ion-icon>
+    </ion-button>
+    <p>Failed</p>
+  </div>
+
+  <div class="stack success" *ngIf="this.successStackId"> <!-- Success Stack -->
+    <ion-badge [ngClass]="{'jump-animation': successJumpActive}">{{successStackLength}}</ion-badge>
+    <ion-button color="success" (click)="onStackPress('success')">
+      <ion-icon name="ribbon-outline"></ion-icon>
+    </ion-button>
+    <p>Success</p>
+  </div>
+</div>

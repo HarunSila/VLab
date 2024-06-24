@@ -1,0 +1,36 @@
+<ion-header [translucent]="true"> <!-- Sektion: Header -->
+  <ion-toolbar> <!-- Toolbar -->
+    <ion-title>V Lab</ion-title> <!-- Titel -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" #content> <!-- Sektion: Content -->
+
+  <div class="card-container"> <!-- Container für Karten -->
+      <ion-card #introCard class="intro-card" color="primary" style="z-index: 1000;"> <!-- Introkarte -->
+          <ion-card-header>
+              <ion-card-title>Welcome to V Lab</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              <p>Here you can collect and learn new Vocabulary.</p>
+              <br>
+              <div class="step"><p>1. </p><p>Create your Course.</p></div>
+              <div class="step"><p>2. </p><p>Begin your Lab.</p></div>
+          </ion-card-content>
+      </ion-card>
+      <!-- Injektion der course-card Komponente -->
+      <app-course-card #darkenElement *ngFor="let course of courses" [course]="course"></app-course-card>
+  </div>
+  
+  <!-- Buttons -->
+  <ion-fab slot="fixed" horizontal="center" vertical="bottom">
+      <ion-fab-button #deleteButton color="danger" style="margin: 0 auto 20px auto; display: none;"> <!-- Button zum Löschen der Introkarte -->
+          <ion-icon name="trash-bin-outline"></ion-icon>
+        </ion-fab-button>         
+
+      <ion-fab-button #darkenElement class="courseCreationButton" color="tertiary" (click)="navigateToCourseCreation()" > <!-- Button zum Navigieren zur coure-creation Seite -->
+        <div class="button-label">New Course</div>
+      </ion-fab-button>
+  </ion-fab>
+ 
+</ion-content>

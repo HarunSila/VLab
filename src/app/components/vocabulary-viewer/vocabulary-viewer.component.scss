@@ -1,0 +1,46 @@
+ion-card {
+    --background: linear-gradient(135deg, #f9cbcb, #8e8eba);
+    border-radius: 10px;
+    height: 40%;
+    width: 80%;
+    padding: 10%;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.1px;
+    font-weight: 700;
+    font-size: large;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    opacity: 1;
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 25%;
+    margin: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-out;
+    z-index:0;
+    .term{
+        font-size: large;
+        font-weight: 500;
+        color: var(--ion-color-primary);
+    }
+    .description{
+        font-size: medium;
+        font-weight: 300;
+        color: var(--ion-color-dark);
+    }
+    .translation{
+        font-size: large;
+        font-weight: 500;
+        color: var(--ion-color-secondary);
+    }
+    .actions{
+        display: flex;
+        justify-content: space-between;
+        gap: 10%;
+        margin-top: auto;
+    }
+}

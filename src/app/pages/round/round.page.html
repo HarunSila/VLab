@@ -1,0 +1,26 @@
+<ion-header [translucent]="true"> <!-- Sektion: Header -->
+  <ion-toolbar> <!-- Toolbar -->
+    <ion-buttons slot="start"> <!-- Button vor dem Titel zur Navigation zum Kurs -->
+      <ion-button (click)="onNavigateToCourse()" color="light" size="large">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>V LAB</ion-title> <!-- Titel der Seite -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"> <!-- Sektion: Inhalt -->
+  <!-- Injektion der round-stack Komponente -->
+  <app-round-stacks [failedStack]="failedStack" [successStack]="successStack"></app-round-stacks>
+  <!-- Injektion der round-questions Komponente -->
+  <app-round-questions #questionRef></app-round-questions>
+
+
+  <!-- Buttons   -->
+  <ion-fab vertical="bottom" horizontal="start">
+    <ion-fab-button shape="round" color="warning" (click)="onNext()" [disabled]="roundStack.length < 1">Next</ion-fab-button> <!-- Button zum Wechseln zur nächsten Frage -->
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button shape="round" color="success" (click)="onConfirm()" [disabled]="roundStack.length < 1">Confirm</ion-fab-button> <!-- Button zum Bestätigen der Antwort -->
+  </ion-fab>
+</ion-content>

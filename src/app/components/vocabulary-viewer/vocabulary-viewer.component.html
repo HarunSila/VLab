@@ -1,0 +1,11 @@
+<ion-card #card *ngFor="let vocab of vocabulary">
+  <div class="term">{{vocab.term}}</div>
+  <ion-card-subtitle class="description">{{vocab.description}}</ion-card-subtitle>
+  <div class="translation">{{vocab.translation}}</div>
+
+  <div class="actions">
+    <ion-button fill="clear" color="danger" (click)="onEditClicked(vocab)">Delete</ion-button>
+    <ion-button fill="clear" color="dark" (click)="onDeleteClicked(vocab)">Edit</ion-button>
+  </div>
+</ion-card>
+
